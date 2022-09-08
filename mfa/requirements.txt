@@ -1,0 +1,6 @@
+flask
+ldap3
+flask_wtf
+wtforms
+flask_bootstrap
+pyotp

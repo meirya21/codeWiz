@@ -1,0 +1,46 @@
+<!DOCTYPE HTML>
+<html>
+	
+<head>
+	<title>login</title>
+</head>
+
+<body class="is-preload">
+	<div id="page-wrapper">
+		<section id="main" class="container medium">
+			<div id="id01" class="modal">
+				<span onclick="document.getElementById('id01').style.display='none'" class="close"
+					title="Close Modal">&times;</span>
+				<img src="/static/lock.jpg" height="100" width="125">
+				<h2>Welcome</h2>
+			</div>
+			{% with messages = get_flashed_messages() %}
+			{% if messages %}
+			<ul class=flashes>
+				{% for message in messages %}
+				<li>{{ message }}</li>
+				{% endfor %}
+			</ul>
+			{% endif %}
+			{% endwith %}
+
+			<!-- Modal Content -->
+			<form method="POST">
+				<input type="hidden" name="csrf_token" value="{{ csrf_token() }}"/>
+
+				<div class="container">
+					<label for="user_name"><b>Username</b></label>
+					<input type="text" placeholder="Enter Username" name="user_name">
+
+					<label for="user_pass"><b>Password</b></label>
+					<input type="password" placeholder="Enter Password" name="user_pass">
+					<p class="error error--hidden"></p>
+
+					<button type="submit" class="button">Login</button>
+				</div>
+			</form>
+			</div>
+		</section>
+	</div>
+</body>
+</html>

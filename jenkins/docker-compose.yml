@@ -1,0 +1,18 @@
+version: "3"
+services:
+  jenkins:
+    build: 
+      context: .
+    container_name: jenkins
+    hostname: jenkins
+    env_file:
+      - users.env
+    ports:
+      - 8080:8080
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - jenkins_home:/var/jenkins_home
+
+volumes:
+  jenkins_home:
+    external: true

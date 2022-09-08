@@ -1,0 +1,17 @@
+jenkins:
+  systemMessage: " Jenkins config file "
+  securityRealm:
+    local:
+      allowsSignup: false
+      users:
+       - id: ${ADMIN_NAME}
+         password: ${ADMIN_PASSWORD}
+  authorizationStrategy:
+    globalMatrix:
+      permissions:
+        - "Overall/Administer:admin"
+        - "Overall/Read:authenticated"
+  remotingSecurity:
+    enabled: true
+security:
+  queueItemAuthenticator:
